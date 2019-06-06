@@ -30,6 +30,6 @@ class Home extends Component {
 const mapStateToProps = state => {};
 const mapDispatchToProps = dispatch => {};
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  null,
+  null
 )(Home);

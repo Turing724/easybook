@@ -8,7 +8,7 @@ class Topic extends Component {
       <TopicWrapper>
         {topicList.map(item => {
           return (
-            <TopicItem key={item.id}>
+            <TopicItem key={item.get('id')}>
               <img src={item.get('imgUrl')} className="topic-pic" alt="" />
               {item.get('title')}
             </TopicItem>
