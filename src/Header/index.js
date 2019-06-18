@@ -1,5 +1,18 @@
 import React from 'react';
-import { Head, Logo, Nav, NavItem, NavSearch, Addition, Button, NavSearchWrapper } from './style';
+import {
+  Head,
+  Logo,
+  Nav,
+  NavItem,
+  NavSearch,
+  Addition,
+  Button,
+  NavSearchWrapper,
+  HotSearch,
+  SearchInfoTitle,
+  SearchInfoSwitch,
+  SearchInfoItem
+} from './style';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
@@ -25,6 +38,21 @@ const Header = props => {
           <i
             className={props.focused ? 'focused iconfont iconMagnifier' : 'iconfont iconMagnifier'}
           />
+          <HotSearch>
+            <SearchInfoTitle>
+              热门搜索
+              <SearchInfoSwitch>
+                <i className="iconfont iconqiehuan" />
+                换一换
+              </SearchInfoSwitch>
+            </SearchInfoTitle>
+            <SearchInfoItem>程序员</SearchInfoItem>
+            <SearchInfoItem>程序员</SearchInfoItem>
+            <SearchInfoItem>程序员</SearchInfoItem>
+            <SearchInfoItem>程序员</SearchInfoItem>
+            <SearchInfoItem>程序员</SearchInfoItem>
+            <SearchInfoItem>程序员</SearchInfoItem>
+          </HotSearch>
         </NavSearchWrapper>
       </Nav>
       <Addition>

@@ -97,6 +97,43 @@ export const NavSearch = styled.input.attrs({
     width: 240px;
   }
 `;
+export const HotSearch = styled.div`
+  position: absolute;
+  top: 58px;
+  left: 18px;
+  width: 240px;
+  padding: 0 20px 10px 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+`;
+export const SearchInfoTitle = styled.div`
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`;
+export const SearchInfoSwitch = styled.div`
+  float: right;
+  font-size: 13px;
+  .iconqiehuan {
+    font-size: 13px;
+    vertical-align: baseline;
+    display: inline-block;
+    margin-right: 3px;
+    transform: rotate(90deg);
+  }
+`;
+export const SearchInfoItem = styled.a`
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 12px;
+  color: #787878;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+`;
 export const Addition = styled.div`
   position: absolute;
   right: 0;
