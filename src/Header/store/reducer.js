@@ -2,15 +2,21 @@ import * as actionTypes from './actionTypes';
 import { fromJS } from 'immutable';
 
 const defaultState = fromJS({
-  focused: false
+  focused: false,
+  hotSearchList: [],
+  page: 1,
+  pageSize: 10
 });
 
 export default (state = defaultState, action) => {
-  if (action.type === actionTypes.ON_FOCUS) {
-    return state.set('focused', true);
+  switch (action.type) {
+    case actionTypes.ON_FOCUS:
+      return state.set('focused', true);
+    case actionTypes.ON_BLUR:
+      return state.set('focused', false);
+    case actionTypes.CAHNGE_LIST:
+      return state.set('hotSearchList', action.data);
+    default:
+      return state;
   }
-  if (action.type === actionTypes.ON_BLUR) {
-    return state.set('focused', false);
-  }
-  return state;
 };
