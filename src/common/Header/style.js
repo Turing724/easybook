@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import LogoImage from '../statics/logo.png';
+import LogoImage from '../../statics/logo.png';
 export const Head = styled.div`
   width: 100%;
   height: 58px;
@@ -115,12 +115,15 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.div`
   float: right;
   font-size: 13px;
-  .iconqiehuan {
+  cursor: pointer;
+  .iconspin {
     font-size: 13px;
     vertical-align: baseline;
     display: inline-block;
     margin-right: 3px;
-    transform: rotate(90deg);
+    transition: all 0.2s ease-in;
+    transform: rotate(0deg);
+    transform-origin: center center;
   }
 `;
 export const SearchInfoItem = styled.a`

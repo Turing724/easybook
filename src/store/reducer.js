@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux-immutable';
-import { reducer as HeaderReducer } from '../Header/store';
+import { reducer as HeaderReducer } from '../common/Header/store';
 
 // 合并组件的reducer;
 const reducer = combineReducers({

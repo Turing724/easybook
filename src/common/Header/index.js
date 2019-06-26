@@ -19,20 +19,44 @@ import { actionCreators } from './store';
 
 class Header extends Component {
   getHotSearchList = () => {
-    const { focused, hotSearchList } = this.props;
-    if (focused) {
+    const {
+      focused,
+      mouseIn,
+      page,
+      totalPage,
+      hotSearchList,
+      handleMouseEnter,
+      handleMouseLeave,
+      handleChangePage
+    } = this.props;
+
+    // 将immutable类型数据转为js类型数据
+    const newList = hotSearchList.toJS();
+
+    const pageList = [];
+
+    if (newList.length) {
+      for (let i = (page - 1) * 10; i < page * 10; i++) {
+        pageList.push(<SearchInfoItem key={newList[i]}>{newList[i]}</SearchInfoItem>);
+      }
+    }
+
+    if (focused || mouseIn) {
       return (
-        <HotSearch>
+        <HotSearch onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <SearchInfoTitle>
             热门搜索
-            <SearchInfoSwitch>
-              <i className="iconfont iconqiehuan" />
+            <SearchInfoSwitch onClick={_ => handleChangePage(page, totalPage, this.spinIcon)}>
+              <i
+                ref={icon => {
+                  this.spinIcon = icon;
+                }}
+                className="iconfont iconspin"
+              />
               换一换
             </SearchInfoSwitch>
           </SearchInfoTitle>
-          {hotSearchList.map((item, i) => {
-            return <SearchInfoItem key={i}>{item}</SearchInfoItem>;
-          })}
+          {pageList}
         </HotSearch>
       );
     } else {
@@ -40,7 +64,7 @@ class Header extends Component {
     }
   };
   render() {
-    const { focused, handleFocus, handleBlur } = this.props;
+    const { focused, hotSearchList, handleFocus, handleBlur } = this.props;
 
     return (
       <Head>
@@ -55,7 +79,7 @@ class Header extends Component {
           <NavSearchWrapper>
             <CSSTransition in={focused} timeout={200} classNames="slide">
               <NavSearch
-                onFocus={handleFocus}
+                onFocus={_ => handleFocus(hotSearchList)}
                 onBlur={handleBlur}
                 className={focused ? 'focused' : ''}
               />
@@ -79,19 +103,47 @@ class Header extends Component {
 const mapStateToProps = state => {
   return {
     focused: state.getIn(['Header', 'focused']),
-    hotSearchList: state.getIn(['Header', 'hotSearchList'])
+    hotSearchList: state.getIn(['Header', 'hotSearchList']),
+    mouseIn: state.getIn(['Header', 'mouseIn']),
+    page: state.getIn(['Header', 'page']),
+    totalPage: state.getIn(['Header', 'totalPage'])
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleFocus() {
+    handleFocus(list) {
+      console.log(list);
       // 获取热门搜索数据
-      dispatch(actionCreators.getHotSearchList());
+      list.size === 0 && dispatch(actionCreators.getHotSearchList());
       dispatch(actionCreators.onFocus());
     },
     handleBlur() {
       dispatch(actionCreators.onBlur());
+    },
+    // 鼠标移入
+    handleMouseEnter() {
+      dispatch(actionCreators.onMouseEnter());
+    },
+    handleMouseLeave() {
+      dispatch(actionCreators.onMouseLeave());
+    },
+    // 切换页数
+    handleChangePage(page, totalPage, spin) {
+      let originAngle = spin.style.transform.replace(/[^0-9]/gi, '');
+      if (originAngle) {
+        originAngle = parseInt(originAngle, 10);
+      } else {
+        originAngle = 0;
+      }
+      spin.style.transform = `rotate(${originAngle + 360}deg)`;
+      console.log(spin.style, originAngle);
+
+      if (page < totalPage) {
+        dispatch(actionCreators.changePage(page + 1));
+      } else {
+        dispatch(actionCreators.changePage(1));
+      }
     }
   };
 };
