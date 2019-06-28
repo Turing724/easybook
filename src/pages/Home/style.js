@@ -19,3 +19,14 @@ export const HomeRight = styled.div`
   width: 240px;
   float: right;
 `;
+
+// Topic样式
+export const TopicWrapper = styled.div`
+  overflow: hidden;
+  padding: 20px 0 10px 0;
+`;
+export const TopicItem = styled.div`
+  float: left;
+  height: 32px;
+  line-height: 32px;
+`;
