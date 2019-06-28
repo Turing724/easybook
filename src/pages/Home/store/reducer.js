@@ -18,8 +18,9 @@ const defalutState = fromJS({
 });
 
 export default (state = defalutState, action) => {
-  switch (action.type) {
-    default:
-      return state;
-  }
+  // switch (action.type) {
+  //   default:
+  //     return state;
+  // }
+  return state;
 };
