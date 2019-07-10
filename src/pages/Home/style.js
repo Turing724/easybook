@@ -47,3 +47,46 @@ export const TopicItem = styled.div`
     height: 32px;
   }
 `;
+// List样式
+export const ListWrapper = styled.div``;
+
+export const ListItem = styled.div`
+  overflow: hidden;
+  padding: 20px 0;
+  margin: 0 0 15px;
+  border-bottom: 1px solid #f0f0f0;
+  .pic {
+    display: block;
+    float: right;
+    width: 125px;
+    height: 100px;
+    border-radius: 4px;
+  }
+`;
+export const ListInfo = styled.div`
+  width: 460px;
+  float: left;
+  .title {
+    line-height: 27px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  .desc {
+    line-height: 24px;
+    font-size: 13px;
+    color: #999;
+  }
+`;
+
+// Recommend样式
+export const RecommendWrapper = styled.div`
+  margin-top: -4px;
+  width: 280px;
+`;
+export const RecommendItem = styled.div`
+  width: 280px;
+  height: 50px;
+  background: url(${props => props.imgUrl});
+  background-size: contain;
+`;
