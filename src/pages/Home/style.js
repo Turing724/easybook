@@ -90,3 +90,19 @@ export const RecommendItem = styled.div`
   background: url(${props => props.imgUrl});
   background-size: contain;
 `;
+
+// writer样式
+export const WriterWrapper = styled.div`
+  width: 240px;
+  margin-top: 16px;
+  overflow: hidden;
+`;
+export const WriterTitle = styled.div`
+  font-size: 14px;
+  color: #969696;
+`;
+export const WriterSwitch = styled.div`
+  float: right;
+`;
+export const WriterInfo = styled.div``;
+export const WriterInfoItem = styled.div``;
