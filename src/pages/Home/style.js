@@ -105,4 +105,8 @@ export const WriterSwitch = styled.div`
   float: right;
 `;
 export const WriterInfo = styled.div``;
-export const WriterInfoItem = styled.div``;
+export const WriterInfoItem = styled.div`
+  .pic {
+    float: left;
+  }
+`;

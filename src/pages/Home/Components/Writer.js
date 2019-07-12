@@ -14,11 +14,15 @@ class Writer extends Component {
         <WriterInfo>
           <WriterInfoItem>
             <img
+              className="pic"
               src="//upload.jianshu.io/users/upload_avatars/5205317/1179d71b-e7c6-4023-89e8-bba25f88272b.jpg"
               alt=""
             />
-            <p>名字</p>
-            <p>关注</p>
+            <p className="name">
+              名字
+              <p>名字</p>
+            </p>
+            <p className="follow">关注</p>
           </WriterInfoItem>
         </WriterInfo>
       </WriterWrapper>
