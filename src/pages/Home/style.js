@@ -16,7 +16,7 @@ export const HomeLeft = styled.div`
 
 export const HomeRight = styled.div`
   padding-top: 30px;
-  width: 240px;
+  width: 280px;
   float: right;
 `;
 
@@ -93,7 +93,7 @@ export const RecommendItem = styled.div`
 
 // writer样式
 export const WriterWrapper = styled.div`
-  width: 240px;
+  width: 280px;
   margin-top: 16px;
   overflow: hidden;
 `;
@@ -106,7 +106,32 @@ export const WriterSwitch = styled.div`
 `;
 export const WriterInfo = styled.div``;
 export const WriterInfoItem = styled.div`
+  margin-top: 15px;
+  width: 100%;
+  overflow: hidden;
   .pic {
     float: left;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+  }
+  .follow {
+    margin-top: 5px;
+    float: right;
+    font-size: 13px;
+    color: #42c02e;
+  }
+  .name {
+    font-size: 14px;
+    padding-top: 6px;
+    color: #333;
+    cursor: pointer;
+    p {
+      padding-top: 5px;
+      font-size: 12px;
+      color: #969696;
+    }
   }
 `;

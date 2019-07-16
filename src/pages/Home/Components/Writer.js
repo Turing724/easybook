@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { WriterWrapper, WriterTitle, WriterSwitch, WriterInfo, WriterInfoItem } from '../style';
 class Writer extends Component {
   render() {
+    const { writerList } = this.props;
     return (
       <WriterWrapper>
         <WriterTitle>
@@ -12,21 +14,34 @@ class Writer extends Component {
           </WriterSwitch>
         </WriterTitle>
         <WriterInfo>
-          <WriterInfoItem>
-            <img
-              className="pic"
-              src="//upload.jianshu.io/users/upload_avatars/5205317/1179d71b-e7c6-4023-89e8-bba25f88272b.jpg"
-              alt=""
-            />
-            <p className="name">
-              名字
-              <p>名字</p>
-            </p>
-            <p className="follow">关注</p>
-          </WriterInfoItem>
+          {writerList.map(item => {
+            return (
+              <WriterInfoItem>
+                <p className="follow">
+                  <i className="iconfont iconjiahao" />
+                  关注
+                </p>
+                <img className="pic" src={item.get('avatar_source')} alt="" />
+                <p className="name">
+                  {item.get('nickname')}
+                  <p>
+                    写了{(item.get('total_wordage') / 1000).toFixed(1)}k字 ·{' '}
+                    {(item.get('total_likes_count') / 1000).toFixed(1)}k喜欢
+                  </p>
+                </p>
+              </WriterInfoItem>
+            );
+          })}
         </WriterInfo>
       </WriterWrapper>
     );
   }
 }
-export default Writer;
+
+const mapStateToProps = state => ({
+  writerList: state.getIn(['Home', 'writerList'])
+});
+export default connect(
+  mapStateToProps,
+  null
+)(Writer);
