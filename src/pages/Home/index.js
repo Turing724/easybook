@@ -5,6 +5,7 @@ import Topic from './Components/Topic';
 import List from './Components/List';
 import Recommend from './Components/Recommend';
 import Writer from './Components/Writer';
+import { actionCreators } from './store';
 class Home extends Component {
   render() {
     return (
@@ -25,11 +26,19 @@ class Home extends Component {
       </HomeWrapper>
     );
   }
+  componentDidMount() {
+    this.props.changeHomeData();
+  }
 }
 
 // const mapStateToProps = state => {};
-// const mapDispatchToProps = dispatch => {};
+const mapDispatchToProps = dispatch => ({
+  changeHomeData() {
+    const action = actionCreators.getHomeData();
+    dispatch(action);
+  }
+});
 export default connect(
   null,
-  null
+  mapDispatchToProps
 )(Home);

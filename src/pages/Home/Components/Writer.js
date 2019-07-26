@@ -16,19 +16,19 @@ class Writer extends Component {
         <WriterInfo>
           {writerList.map(item => {
             return (
-              <WriterInfoItem>
+              <WriterInfoItem key={item.get('id')}>
                 <p className="follow">
                   <i className="iconfont iconjiahao" />
                   关注
                 </p>
                 <img className="pic" src={item.get('avatar_source')} alt="" />
-                <p className="name">
+                <div className="name">
                   {item.get('nickname')}
                   <p>
                     写了{(item.get('total_wordage') / 1000).toFixed(1)}k字 ·{' '}
                     {(item.get('total_likes_count') / 1000).toFixed(1)}k喜欢
                   </p>
-                </p>
+                </div>
               </WriterInfoItem>
             );
           })}

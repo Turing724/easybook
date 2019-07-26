@@ -1,180 +1,23 @@
 import { fromJS } from 'immutable';
+import * as actionTypes from './actionTypes';
 
 const defalutState = fromJS({
-  topicList: [
-    {
-      id: 1,
-      title: '社会热点',
-      imgUrl:
-        '//upload.jianshu.io/collections/images/261938/man-hands-reading-boy-large.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64'
-    },
-    {
-      id: 2,
-      title: '手手绘',
-      imgUrl:
-        '//upload.jianshu.io/collections/images/21/20120316041115481.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64'
-    }
-  ],
-  articleList: [
-    {
-      id: 1,
-      title: '胡歌12年后首谈车祸',
-      desc:
-        '文/麦大人 01 胡歌又刷屏了。 近日他上了《朗读者》，而这一期的主题是“生命”，他用磁性的嗓音，朗读了一段《哈姆雷特》中的经典独白，相当震撼：...',
-      imgUrl:
-        '//upload-images.jianshu.io/upload_images/2259045-2986b9be86b01f63?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240'
-    },
-    {
-      id: 2,
-      title: '胡歌12年后首谈车祸：既然活下来了，就不能白白活着',
-      desc:
-        '文/麦大人 01 胡歌又刷屏了。 近日他上了《朗读者》，而这一期的主题是“生命”，他用磁性的嗓音，朗读了一段《哈姆雷特》中的经典独白，相当震撼：...',
-      imgUrl:
-        '//upload-images.jianshu.io/upload_images/2259045-2986b9be86b01f63?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240'
-    },
-    {
-      id: 3,
-      title: '胡歌12年后首谈车祸：既然活下来了，就不能白白活着',
-      desc:
-        '文/麦大人 01 胡歌又刷屏了。 近日他上了《朗读者》，而这一期的主题是“生命”，他用磁性的嗓音，朗读了一段《哈姆雷特》中的经典独白，相当震撼：...',
-      imgUrl:
-        '//upload-images.jianshu.io/upload_images/2259045-2986b9be86b01f63?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240'
-    },
-    {
-      id: 4,
-      title: '胡歌12年后首谈车祸：既然活下来了，就不能白白活着',
-      desc:
-        '文/麦大人 01 胡歌又刷屏了。 近日他上了《朗读者》，而这一期的主题是“生命”，他用磁性的嗓音，朗读了一段《哈姆雷特》中的经典独白，相当震撼：...',
-      imgUrl:
-        '//upload-images.jianshu.io/upload_images/2259045-2986b9be86b01f63?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240'
-    }
-  ],
-  recommendList: [
-    {
-      id: 1,
-      imgUrl:
-        'http://cdn2.jianshu.io/assets/web/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png'
-    },
-    {
-      id: 2,
-      imgUrl: 'http://cdn2.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png'
-    },
-    {
-      id: 3,
-      imgUrl: 'http://cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png'
-    },
-    {
-      id: 4,
-      imgUrl: 'http://cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png'
-    }
-  ],
-  writerList: [
-    {
-      id: 5205317,
-      slug: 'dbfdce352c0d',
-      nickname: '遛遛心情的溜妈',
-      avatar_source:
-        'http://upload.jianshu.io/users/upload_avatars/5205317/1179d71b-e7c6-4023-89e8-bba25f88272b.jpg',
-      total_likes_count: 28973,
-      total_wordage: 672035,
-      is_following_user: false
-    },
-    {
-      id: 7663825,
-      slug: '78f970537a5e',
-      nickname: '名贵的考拉熊',
-      avatar_source:
-        'http://upload.jianshu.io/users/upload_avatars/7663825/7c28763e-002b-4e89-8dea-5b8da210ef2c.jpg',
-      total_likes_count: 18533,
-      total_wordage: 247738,
-      is_following_user: false
-    },
-    {
-      id: 677687,
-      slug: '854cb566c478',
-      nickname: '灰土豆',
-      avatar_source: 'http://upload.jianshu.io/users/upload_avatars/677687/c84b99723362.jpg',
-      total_likes_count: 1870,
-      total_wordage: 332834,
-      is_following_user: false
-    },
-    {
-      id: 4790772,
-      slug: '0f438ff0a55f',
-      nickname: '茶点故事',
-      avatar_source:
-        'http://upload.jianshu.io/users/upload_avatars/4790772/388e473c-fe2f-40e0-9301-e357ae8f1b41.jpeg',
-      total_likes_count: 13056,
-      total_wordage: 522461,
-      is_following_user: false
-    },
-    {
-      id: 3950651,
-      slug: 'ca5b9d6f94dc',
-      nickname: '三儿王屿',
-      avatar_source:
-        'http://upload.jianshu.io/users/upload_avatars/3950651/acfaa0ce-42fe-424a-b7c8-9a0136fb96ec.jpg',
-      total_likes_count: 3436,
-      total_wordage: 162115,
-      is_following_user: false
-    },
-    {
-      id: 7416466,
-      slug: 'e7dd0b3c7b70',
-      nickname: '老沈1',
-      avatar_source:
-        'http://upload.jianshu.io/users/upload_avatars/7416466/fc1a1a0d-e3c7-4bca-9720-028c5c9914f3.jpg',
-      total_likes_count: 664,
-      total_wordage: 132229,
-      is_following_user: false
-    },
-    {
-      id: 4287007,
-      slug: 'f666aefcc318',
-      nickname: '晖宗聊绘画',
-      avatar_source:
-        'http://upload.jianshu.io/users/upload_avatars/4287007/b7b9c810-069e-4385-aec7-1823e94ee43d.jpg',
-      total_likes_count: 2362,
-      total_wordage: 162263,
-      is_following_user: false
-    },
-    {
-      id: 1835526,
-      slug: '55b597320c4e',
-      nickname: '行距版君',
-      avatar_source:
-        'http://upload.jianshu.io/users/upload_avatars/1835526/83d24e1a-0a0f-43f6-8a1d-289be6101e73.png',
-      total_likes_count: 54359,
-      total_wordage: 518368,
-      is_following_user: false
-    },
-    {
-      id: 7705786,
-      slug: '85e87737a013',
-      nickname: '北落西门',
-      avatar_source:
-        'http://upload.jianshu.io/users/upload_avatars/7705786/a90dc05d-63f6-4690-8c1a-dcf7ff4422df.jpg',
-      total_likes_count: 7833,
-      total_wordage: 67733,
-      is_following_user: false
-    },
-    {
-      id: 3627484,
-      slug: 'c5580cc1c3f4',
-      nickname: '简书大学堂',
-      avatar_source:
-        'http://upload.jianshu.io/users/upload_avatars/3627484/eb973bb9-37ba-4d07-acec-850c0a66d1bb.png',
-      total_likes_count: 34006,
-      total_wordage: 1506324,
-      is_following_user: false
-    }
-  ]
+  topicList: [],
+  articleList: [],
+  recommendList: [],
+  writerList: []
 });
 
 export default (state = defalutState, action) => {
-  // switch (action.type) {
-  //   default:
-  //     return state;
-  // }
-  return state;
+  switch (action.type) {
+    case actionTypes.CHANGE_HOME_DATA:
+      return state.merge({
+        topicList: fromJS(action.topicList),
+        articleList: fromJS(action.articleList),
+        recommendList: fromJS(action.recommendList),
+        writerList: fromJS(action.writerList)
+      });
+    default:
+      return state;
+  }
 };
