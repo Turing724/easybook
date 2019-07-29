@@ -23,3 +23,7 @@ export const getHomeData = () => {
       });
   };
 };
+
+export const getMoreList = () => {
+  return dispatch => {};
+};
