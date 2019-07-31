@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ListWrapper, ListItem, ListInfo, LoadMore } from '../style';
-import { actionCreators } from '../../../common/Header/store';
+import { actionCreators } from '../store';
 class List extends Component {
   render() {
     const { articleList, getMore } = this.props;
     return (
       <ListWrapper>
-        {articleList.map(item => {
+        {articleList.map((item, index) => {
           return (
-            <ListItem key={item.get('id')}>
+            <ListItem key={index}>
               <img className="pic" src={item.get('imgUrl')} alt="" />
               <ListInfo>
                 <h3 className="title">{item.get('title')}</h3>
@@ -25,7 +25,8 @@ class List extends Component {
 }
 
 const mapStateToProps = state => ({
-  articleList: state.getIn(['Home', 'articleList'])
+  articleList: state.getIn(['Home', 'articleList']),
+  articlePage: state.getIn(['Home', 'articlePage'])
 });
 
 const mapDispatchToProps = dispatch => ({

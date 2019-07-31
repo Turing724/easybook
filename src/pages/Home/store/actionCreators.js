@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { fromJS } from 'immutable';
 import * as actionTypes from './actionTypes';
 
 const homeData = data => ({
@@ -9,13 +10,17 @@ const homeData = data => ({
   writerList: data.writerList
 });
 
+const moreHomeList = data => ({
+  type: actionTypes.GET_MORE_lIST,
+  moreArticleList: fromJS(data)
+});
 export const getHomeData = () => {
   return dispatch => {
     axios
       .get('/api/home.json')
       .then(res => {
         const data = res.data.data;
-        const action = homeData(homeData(data));
+        const action = homeData(data);
         dispatch(action);
       })
       .catch(error => {
@@ -25,5 +30,15 @@ export const getHomeData = () => {
 };
 
 export const getMoreList = () => {
-  return dispatch => {};
+  return dispatch => {
+    axios
+      .get('/api/homeList.json')
+      .then(res => {
+        const action = moreHomeList(res.data.data);
+        dispatch(action);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 };
