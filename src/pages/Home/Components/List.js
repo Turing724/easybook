@@ -4,7 +4,7 @@ import { ListWrapper, ListItem, ListInfo, LoadMore } from '../style';
 import { actionCreators } from '../store';
 class List extends Component {
   render() {
-    const { articleList, getMore } = this.props;
+    const { articleList, getMore, articlePage } = this.props;
     return (
       <ListWrapper>
         {articleList.map((item, index) => {
@@ -18,7 +18,7 @@ class List extends Component {
             </ListItem>
           );
         })}
-        <LoadMore onClick={getMore}>更多文字</LoadMore>
+        <LoadMore onClick={() => getMore(articlePage)}>更多文字</LoadMore>
       </ListWrapper>
     );
   }
@@ -31,8 +31,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   // 获取更多文字
-  getMore() {
-    dispatch(actionCreators.getMoreList());
+  getMore(page) {
+    dispatch(actionCreators.getMoreList(page));
   }
 });
 export default connect(

@@ -22,7 +22,8 @@ export default (state = defalutState, action) => {
       });
     case actionTypes.GET_MORE_lIST:
       return state.merge({
-        articleList: state.get('articleList').concat(action.moreArticleList)
+        articleList: state.get('articleList').concat(action.moreArticleList),
+        articlePage: action.nextPage
       });
     default:
       return state;
