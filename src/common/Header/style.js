@@ -7,9 +7,7 @@ export const Head = styled.div`
   border-bottom: 1px solid #f0f0f0;
   padding: 0 10px;
 `;
-export const Logo = styled.a.attrs({
-  href: '/'
-})`
+export const Logo = styled.div`
   width: 100px;
   height: 56px;
   display: block;
@@ -18,6 +16,7 @@ export const Logo = styled.a.attrs({
   top: 0;
   left: 0;
   background-size: contain;
+  cursor: pointer;
 `;
 export const Nav = styled.div`
   width: 945px;

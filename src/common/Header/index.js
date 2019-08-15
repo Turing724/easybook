@@ -1,34 +1,12 @@
 import React, { Component } from 'react';
-import {
-  Head,
-  Logo,
-  Nav,
-  NavItem,
-  NavSearch,
-  Addition,
-  Button,
-  NavSearchWrapper,
-  HotSearch,
-  SearchInfoTitle,
-  SearchInfoSwitch,
-  SearchInfoItem
-} from './style';
+import { Head, Logo, Nav, NavItem, NavSearch, Addition, Button, NavSearchWrapper, HotSearch, SearchInfoTitle, SearchInfoSwitch, SearchInfoItem } from './style';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
-
+import { Link } from 'react-router-dom';
 class Header extends Component {
   getHotSearchList = () => {
-    const {
-      focused,
-      mouseIn,
-      page,
-      totalPage,
-      hotSearchList,
-      handleMouseEnter,
-      handleMouseLeave,
-      handleChangePage
-    } = this.props;
+    const { focused, mouseIn, page, totalPage, hotSearchList, handleMouseEnter, handleMouseLeave, handleChangePage } = this.props;
 
     // 将immutable类型数据转为js类型数据
     const newList = hotSearchList.toJS();
@@ -68,7 +46,9 @@ class Header extends Component {
 
     return (
       <Head>
-        <Logo />
+        <Link to="/home">
+          <Logo />
+        </Link>
         <Nav>
           <NavItem className="left active">首页</NavItem>
           <NavItem className="left">下载APP</NavItem>
@@ -78,11 +58,7 @@ class Header extends Component {
           </NavItem>
           <NavSearchWrapper>
             <CSSTransition in={focused} timeout={200} classNames="slide">
-              <NavSearch
-                onFocus={_ => handleFocus(hotSearchList)}
-                onBlur={handleBlur}
-                className={focused ? 'focused' : ''}
-              />
+              <NavSearch onFocus={_ => handleFocus(hotSearchList)} onBlur={handleBlur} className={focused ? 'focused' : ''} />
             </CSSTransition>
             <i className={focused ? 'focused iconfont iconMagnifier' : 'iconfont iconMagnifier'} />
             {this.getHotSearchList()}

@@ -6,12 +6,12 @@ const defalutState = fromJS({
   articleList: [],
   recommendList: [],
   writerList: [],
-  articlePage: 1
+  articlePage: 1,
+  showScroll: false
 });
 
 export default (state = defalutState, action) => {
-  console.log(state, action, 'action');
-
+  // console.log(state, action, 'action');
   switch (action.type) {
     case actionTypes.CHANGE_HOME_DATA:
       return state.merge({
@@ -25,6 +25,8 @@ export default (state = defalutState, action) => {
         articleList: state.get('articleList').concat(action.moreArticleList),
         articlePage: action.nextPage
       });
+    case actionTypes.TOGGLE_SHOW_scroll:
+      return state.set('showScroll', action.show);
     default:
       return state;
   }

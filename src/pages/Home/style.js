@@ -115,6 +115,7 @@ export const WriterSwitch = styled.div`
   float: right;
 `;
 export const WriterInfo = styled.div``;
+
 export const WriterInfoItem = styled.div`
   margin-top: 15px;
   width: 100%;
@@ -144,4 +145,16 @@ export const WriterInfoItem = styled.div`
       color: #969696;
     }
   }
+`;
+// 回到顶部
+export const BackTop = styled.div`
+  position: fixed;
+  right: 60px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  border: 1px solid #ccc;
+  cursor: pointer;
 `;

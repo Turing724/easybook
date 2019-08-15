@@ -15,6 +15,11 @@ const moreHomeList = (data, nextPage) => ({
   moreArticleList: fromJS(data),
   nextPage
 });
+export const toggleShowScroll = show => ({
+  type: actionTypes.TOGGLE_SHOW_scroll,
+  show
+});
+
 export const getHomeData = () => {
   return dispatch => {
     axios
