@@ -16,3 +16,5 @@ export const LoginContainer = styled.div`
   border-radius: 4px;
   box-sizing: border-box;
 `;
+
+export const LoginTitle = styled.div``;
