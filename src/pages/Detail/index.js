@@ -4,7 +4,6 @@ import { DetailWrapper, DetailTitle, DetailContent } from './style';
 import { actionCreators } from './store';
 class Detail extends Component {
   render() {
-    // const { detailList } = this.props;
     return (
       <DetailWrapper>
         <DetailTitle>{this.props.detailList.get('title')}</DetailTitle>
@@ -13,17 +12,17 @@ class Detail extends Component {
       </DetailWrapper>
     );
   }
+
   componentDidMount() {
-    this.props.getDetailData();
-    console.log(this.props.location);
+    this.props.getDetailData(this.props.match.params.id);
   }
 }
 const mapStateToProps = state => ({
   detailList: state.getIn(['Detail', 'detailList'])
 });
 const mapDispatchToProps = dispatch => ({
-  getDetailData() {
-    dispatch(actionCreators.getDetailData());
+  getDetailData(id) {
+    dispatch(actionCreators.getDetailData(id));
   }
 });
 export default connect(
