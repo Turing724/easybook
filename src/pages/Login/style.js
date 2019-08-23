@@ -17,4 +17,30 @@ export const LoginContainer = styled.div`
   box-sizing: border-box;
 `;
 
-export const LoginTitle = styled.div``;
+export const LoginTitle = styled.div`
+  font-weight: 700;
+  color: #ea6f5a;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 50px;
+`;
+export const LoginForm = styled.div`
+  width: 300px;
+  height: 100px;
+  border: 1px solid #c8c8c8;
+  border-radius: 4px;
+`;
+export const Input = styled.input`
+  border: none;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #fff;
+  padding: 4px 12px 4px 35px;
+  box-sizing: border-box;
+  color: #777;
+  background-color: hsla(0, 0%, 71%, 0.1);
+  &.passWord {
+    border-top: 1px solid #c8c8c8;
+  }
+`;
