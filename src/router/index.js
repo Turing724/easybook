@@ -8,7 +8,7 @@ export const routes = [
     exact: true
   },
   {
-    path: '/home',
+    path: '/',
     component: Home,
     exact: true
   },

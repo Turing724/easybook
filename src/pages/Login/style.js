@@ -44,3 +44,15 @@ export const Input = styled.input`
     border-top: 1px solid #c8c8c8;
   }
 `;
+export const Button = styled.button`
+  border: none;
+  background-color: #3194d0;
+  color: #fff;
+  border-radius: 4px;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+`;
