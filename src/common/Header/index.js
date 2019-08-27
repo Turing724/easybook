@@ -84,7 +84,8 @@ const mapStateToProps = state => {
     hotSearchList: state.getIn(['Header', 'hotSearchList']),
     mouseIn: state.getIn(['Header', 'mouseIn']),
     page: state.getIn(['Header', 'page']),
-    totalPage: state.getIn(['Header', 'totalPage'])
+    totalPage: state.getIn(['Header', 'totalPage']),
+    isLogin: state.getIn(['Login', 'isLogin'])
   };
 };
 

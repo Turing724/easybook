@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { LoginWrapper, LoginContainer, LoginTitle, LoginForm, Input, Button } from './style';
 import { connect } from 'react-redux';
+import { dispatch } from '../../../../../AppData/Local/Microsoft/TypeScript/3.5/node_modules/rxjs/internal/observable/pairs';
 class Login extends Component {
   render() {
     return (
@@ -17,7 +18,8 @@ class Login extends Component {
     );
   }
 }
-
+const mapStateToProps = state => ({});
+const mapDispatchToProps = dispatch => ({});
 export default connect(
   null,
   null
