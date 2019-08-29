@@ -55,4 +55,5 @@ export const Button = styled.button`
   height: 40px;
   line-height: 40px;
   font-size: 16px;
+  cursor: pointer;
 `;

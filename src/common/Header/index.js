@@ -42,7 +42,7 @@ class Header extends Component {
     }
   };
   render() {
-    const { focused, hotSearchList, handleFocus, handleBlur } = this.props;
+    const { focused, hotSearchList, handleFocus, handleBlur, isLogin } = this.props;
 
     return (
       <Head>
@@ -52,9 +52,16 @@ class Header extends Component {
         <Nav>
           <NavItem className="left active">首页</NavItem>
           <NavItem className="left">下载APP</NavItem>
-          <Link to={'/Login'}>
-            <NavItem className="right">登录</NavItem>
-          </Link>
+          {isLogin ? (
+            <Link to={'/'}>
+              <NavItem className="right">退出</NavItem>
+            </Link>
+          ) : (
+            <Link to={'/Login'}>
+              <NavItem className="right">登录</NavItem>
+            </Link>
+          )}
+
           <NavItem className="right">
             <i className="iconfont iconAa" />
           </NavItem>
