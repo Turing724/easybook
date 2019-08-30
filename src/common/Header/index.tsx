@@ -1,10 +1,15 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Head, Logo, Nav, NavItem, NavSearch, Addition, Button, NavSearchWrapper, HotSearch, SearchInfoTitle, SearchInfoSwitch, SearchInfoItem } from './style';
 import { CSSTransition } from 'react-transition-group';
-import { connect } from 'react-redux';
+import { connect, Action, Dispatch } from 'react-redux';
 import { actionCreators } from './store';
 import { Link } from 'react-router-dom';
-class Header extends Component {
+class Header extends React.Component<any> {
+  public spinIcon: any;
+  constructor(props: any) {
+    super(props);
+    this.spinIcon = null;
+  }
   getHotSearchList = () => {
     const { focused, mouseIn, page, totalPage, hotSearchList, handleMouseEnter, handleMouseLeave, handleChangePage } = this.props;
 
@@ -85,7 +90,7 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: any) => {
   return {
     focused: state.getIn(['Header', 'focused']),
     hotSearchList: state.getIn(['Header', 'hotSearchList']),
@@ -96,7 +101,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: Dispatch<Action>) => {
   return {
     handleFocus(list) {
       console.log(list);
